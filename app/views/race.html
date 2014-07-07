@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th colspan="5" class="tab-header tb-header-drivers"><font><font class="">Resultado de la carrera - {{year.year}}</font></font></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="heading-row">
+        <td class="responsive_column"><strong><font><font>Posicion</font></font></strong></td>
+        <td><font><font>Nombre</font></font></td>
+        <td class="responsive_column"><font><font>Equipo</font></font></td>
+        <td><font><font>Tiempo</font></font></td>
+        <td><font><font>Puntos</font></font></td>
+    </tr>
+    <tr ng-repeat="race in race.Results | filter: searchFilter" class="{{($index%2) == 0 ? '' : 'success'}}">
+        <td >{{race.position}}</td>
+        <td>
+
+            <img src="img/flags/{{driver.Driver.nationality}}.png" />
+            <a href="#/drivers/{{year.year}}/{{race.Driver.driverId}}">
+                {{race.Driver.givenName}} {{race.Driver.familyName}}
+            </a>
+        </td>
+        <td>{{race.Constructor.name}}</td>
+        <td>
+            {{race.Time.time}}
+        </td>
+        <td>
+            {{race.points}}
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>

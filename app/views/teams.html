@@ -1,0 +1,20 @@
+<table class="table pull-right" id="driversTable">
+    <thead>
+    <tr>
+        <th colspan="4" class="tab-header tb-header-drivers">Equipos  - {{year.year}}</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="team in constructorList" class="{{($index%2) == 0 ? '' : 'success'}}">
+        <td >{{$index + 1}}</td>
+        <td>
+            <img src="img/flags/{{team.constructorId}}.png" />
+            <a href="#/teams/{{team.constructorId}}">
+                {{team.name}}&nbsp;{{team.nacionality}}
+            </a>
+        </td>
+        <td> <a href="{{team.url}}">
+            details
+        </a></td>
+    </tr>
+    </tbody>
+</table>

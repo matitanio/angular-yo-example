@@ -1,0 +1,29 @@
+<table class="table">
+<thead>
+<tr>
+    <th colspan="5" class="tab-header tb-header-drivers"><font><font>Carreras Calendario - {{year.year}}</font></font></th>
+</tr>
+</thead>
+<tr class="heading-row">
+    <td class="responsive_column"><strong><font><font>Ronda</font></font></strong></td>
+    <td><font><font>Grand Prix</font></font></td>
+    <td class="responsive_column"><font><font>Circuito</font></font></td>
+    <td><font><font>Fecha</font></font></td>
+    <td><font><font>Ganador</font></font></td>
+</tr>
+<tr ng-repeat="race in races | filter: searchFilter" class="{{($index%2) == 0 ? '' : 'success'}}">
+    <td >{{$index + 1}}</td>
+    <td>
+
+        <img src="img/flags/{{driver.Driver.nationality}}.png" />
+        <a href="#/races/{{race.season}}/{{race.round}}">
+            {{race.raceName}}
+        </a>
+    </td>
+    <td>{{race.Circuit.circuitName}}</td>
+    <td>{{race.date | date : 'dd/MM/yyyy'}}</td>
+    <td><a href="#/drivers/{{race.season}}/{{race.Results[0].Driver.driverId}}">
+        {{race.Results[0].Driver.givenName}} {{race.Results[0].Driver.familyName}}
+    </a></td>
+</tr>
+</table>
